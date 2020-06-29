@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api:
+    hostname: api
+    container_name: api
+    build:
+      context: ./ctr
+      dockerfile: api.Dockerfile
+    user: root
+    # environment:
+    # env_file:
+    #   - ./.env
+    volumes:
+       - "./src:/home/src"   
+    privileged: true
+    ports:
+      - "5000:5000"
+    tty: true
+    # command: python3 app.py
+    
